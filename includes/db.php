@@ -6,6 +6,10 @@ $options = [
 ];
 
 $pdo = new PDO(
-  "mysql:host=localhost;dbname=cms;charset=utf8",
+  "mysql:host=localhost;dbname=cms_grupp1;charset=utf8",
   "root",
   "root", $options);
+
+spl_autoload_register(function ($class) {
+       include "../classes/" . $class . ".php";
+   });
