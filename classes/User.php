@@ -43,15 +43,6 @@ class User{
         }
     }
 
-
-
-
-
-
-
-
-
-
 	public function signup(){
 		$username = $_POST['username'];
 		$password = $_POST['password'];
