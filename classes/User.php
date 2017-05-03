@@ -7,6 +7,51 @@ class User{
 		$this->pdo = $pdo;
 	}
 
+    public function login(){
+
+        if (isset($_POST['username']) &&
+            isset($_POST['password'])){
+
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $stmt = $this->pdo->prepare("SELECT * FROM users WHERE username = :username");
+
+            $stmt->execute([':username' => $username]);
+
+            $row = $stmt->fetchAll();
+             
+            if(!empty($row)) {
+
+                if(password_verify($password, $row[0]['Password'])){
+                    
+                    echo "HEJ !";
+                    session_start();            
+                    $_SESSION['username'] = $row[0]['Username'];
+                    //echo $_SESSION['username'];
+                } 
+                else{
+                    echo "Invalid username/password"; 
+                    header('refresh:2; url=../index.php');
+                }
+            }
+            else{
+                echo "Invalid username/password"; 
+                header('refresh:2; url=../index.php');
+            }
+
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
 	public function signup(){
 		$username = $_POST['username'];
 		$password = $_POST['password'];
@@ -23,9 +68,8 @@ class User{
             if(!empty($row)) {
 
                 if($row[0]['Username'] == $username) {
-                    //var_dump($row[0]);
                     echo "The username " . $username . " not available";
-                    echo "Use a difference username or try <a href='index.php'>loging in</a>";
+                    echo "Use a difference username or try <a href='index.php'>logging in</a>";
                 //header('Location: index.php');
                 }
             
@@ -36,7 +80,7 @@ class User{
                 ':username' => $username,
                 ':password' => $pwhash,
                 )); 
-                //header('Location: index.php');
+                header('Location: ../includes/registercomplete.php');
             }      
         }		
  
