@@ -1,4 +1,9 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+
 $options = [ 
   PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
   PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -11,5 +16,6 @@ $pdo = new PDO(
   "root", $options);
 
 spl_autoload_register(function ($class) {
-       include "../classes/" . $class . ".php";
+       include(dirname(__DIR__)) . "/classes/" . $class . ".php";
    });
+$user = new User($pdo);

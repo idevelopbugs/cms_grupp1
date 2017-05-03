@@ -1,7 +1,5 @@
 <?php
-	include 'db.php';
-
-    $user = new User($pdo);
+	include(dirname(__DIR__) . '/includes/db.php');
     $user->login();
 
     

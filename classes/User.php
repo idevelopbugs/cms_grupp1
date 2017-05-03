@@ -7,6 +7,11 @@ class User{
 		$this->pdo = $pdo;
 	}
 
+    public function isloggedin(){
+        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']  == true) {
+            return true;
+        }
+    }    
     public function login(){
 
         if (isset($_POST['username']) &&
@@ -18,15 +23,16 @@ class User{
 
             $stmt->execute([':username' => $username]);
 
-            $row = $stmt->fetchAll();
+            $row = $stmt->fetch();
              
             if(!empty($row)) {
 
-                if(password_verify($password, $row[0]['Password'])){
+                if(password_verify($password, $row['Password'])){
                     
-                    echo "HEJ !";
-                    session_start();            
-                    $_SESSION['username'] = $row[0]['Username'];
+                    echo "HEJ !";     
+                    $_SESSION['username'] = $row['Username'];
+                    $_SESSION['loggedin'] = true;
+                    header('refresh:2; url=../index.php');
                     //echo $_SESSION['username'];
                 } 
                 else{
@@ -38,9 +44,8 @@ class User{
                 echo "Invalid username/password"; 
                 header('refresh:2; url=../index.php');
             }
-
-
         }
+
     }
 
 	public function signup(){
@@ -54,11 +59,11 @@ class User{
 		$stmt->execute([':username' => $username]
 			);
 
- 		$row = $stmt->fetchAll();
+ 		$row = $stmt->fetch();
  
             if(!empty($row)) {
 
-                if($row[0]['Username'] == $username) {
+                if($row['Username'] == $username) {
                     echo "The username " . $username . " not available";
                     echo "Use a difference username or try <a href='index.php'>logging in</a>";
                 //header('Location: index.php');
