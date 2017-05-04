@@ -37,6 +37,7 @@ class User{
                     
                     echo "HEJ !";     
                     $_SESSION['username'] = $row['Username'];
+                    $_SESSION['admin'] = $row['Admin'];
                     $_SESSION['loggedin'] = true;
                     header('refresh:2; url=../index.php');
                     //echo $_SESSION['username'];
