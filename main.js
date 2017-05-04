@@ -1,3 +1,15 @@
+$('.removebtn').click(function() {
+
+$.ajax({
+    type: "POST",
+    url: "some.php",
+    data: { name: "John" }
+    }).done(function( msg ) {
+    alert( "Data Saved: " + msg );
+    });    
+
+   });
+
 fetch('jsoncontent.php')
 // The response converted to JSON is saved 
   .then(data => data.json())

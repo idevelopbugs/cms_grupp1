@@ -16,6 +16,13 @@ class Post{
 		return $row;
 	}
 
+	public function removePost(){
+		$post = $_GET['id'];
+
+		$stmt = $this->pdo->prepare("DELETE FROM posts WHERE id = :post ");
+        $stmt->execute([':post' => $post]); 		
+	}
+
 	public function createPost(){
 		$title = $_POST['title'];
 		$postcontent = $_POST['postcontent'];
@@ -35,6 +42,6 @@ class Post{
 	}
 	public function listAllJson($data)
   	{
-    	echo json_encode($data);
+    	return json_encode($data);
   	}	
 }
