@@ -19,3 +19,4 @@ spl_autoload_register(function ($class) {
        include(dirname(__DIR__)) . "/classes/" . $class . ".php";
    });
 $user = new User($pdo);
+$post = new Post($pdo);

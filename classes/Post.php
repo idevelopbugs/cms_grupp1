@@ -1,6 +1,6 @@
 <?php
 
-class Posts{
+class Post{
 	private $pdo;
 
 	public function __construct($pdo){
@@ -11,7 +11,9 @@ class Posts{
 
 		$stmt = $this->pdo->prepare("SELECT * FROM Posts");
 		$stmt->execute();
-		$row = $stmt->fetchAll();
+		$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		return $row;
 	}
 
 	public function createPost(){
@@ -30,5 +32,9 @@ class Posts{
             ));  
         }
 
-	}	
+	}
+	public function listAllJson($data)
+  	{
+    	echo json_encode($data);
+  	}	
 }

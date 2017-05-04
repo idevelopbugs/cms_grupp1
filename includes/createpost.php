@@ -1,5 +1,4 @@
 <?php
-	include 'db.php';
-
-    $posts = new Posts($pdo);
-    $posts->createPost();
+	include(dirname(__DIR__) . '/includes/db.php');
+    $post->createPost();
+    header('location: ../index.php');

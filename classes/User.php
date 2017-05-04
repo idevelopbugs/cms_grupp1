@@ -11,6 +11,12 @@ class User{
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']  == true) {
             return true;
         }
+    }
+
+    public function logout(){
+        session_unset();
+        session_destroy();
+        header('location: ../index.php');
     }    
     public function login(){
 

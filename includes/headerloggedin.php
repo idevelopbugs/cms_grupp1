@@ -1,5 +1,5 @@
-<?php
+<?php echo "Welcome " . $_SESSION['username'] . "<br>"; ?>
 
-?>
+<a href="includes/logout.php">Log out</a>
 
-<a href="Logout">LOG OUT</a>
+
