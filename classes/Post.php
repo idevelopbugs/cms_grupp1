@@ -15,6 +15,17 @@ class Post{
 
 		return $row;
 	}
+    public function getPost()
+    {
+        $postId = (int) $_GET['id'];
+        
+        $stmt = $this->pdo->prepare("SELECT * FROM Posts WHERE id = :postId");
+        $stmt->execute([
+            ':postId' => $postId
+        ]);
+        $post = $stmt->fetch();
+        return $post;
+    }
 
 	public function removePost(){
 		$post = $_GET['id'];
@@ -38,8 +49,29 @@ class Post{
                 ':user' => $user
             ));  
         }
-
 	}
+    
+    public function editPost()
+    {
+        $postId = (int) $_GET['id'];
+        
+        if (isset($_POST['title']) &&
+            isset($_POST['postcontent'])) {
+            $title = $_POST['title'];
+            $postcontent = $_POST['postcontent'];
+
+            $stmt = $this->pdo->prepare("UPDATE Posts SET Title = :title, Content = :content WHERE id = :postId");
+
+            $stmt->execute(array(
+                ':title' => $title,
+                ':content' => $postcontent,
+                ':postId' => $postId
+            ));
+        } else {
+            echo 'nothing here';
+        } 
+    }
+    
 	public function listAllJson($data)
   	{
     	return json_encode($data);

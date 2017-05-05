@@ -16,7 +16,7 @@ class User{
     public function logout(){
         session_unset();
         session_destroy();
-        header('location: ../index.php');
+        header('Location: ../index.php');
     }    
     public function login(){
 
