@@ -11,13 +11,13 @@ $posts = $post->getAllPosts();
 						<h3>' . $row['Title'] . '</h3>
 						<p>' . $row['Content'] . '</p>
 						<h5>' . $row['User'] . ', ' . $row['Date'] . '</h5>
-						<input type="submit" class="likebtn" value="Like">';
+                        <a href="">&#128077;</a>';
 
 						if($user->isloggedin()){
 							if ($_SESSION['username'] == $row['User']) {
 									
 								echo '<div class="postoptions">
-									<input type="submit" value="Edit">
+									<a href="includes/editor.php?id=' . $row['ID'] . '">Edit</a>
 									<a href="includes/delete.php?id=' . $row['ID'] . '">Remove</a>
 								</div>';
 								//header('Location: index.php');
