@@ -1,3 +1,4 @@
+
 <?php
     include "header.php";
 ?>
@@ -22,3 +23,10 @@
   </div>
 </div>
 </div>
+<?php
+    if($_GET['error']){
+          //var_dump($_GET['error']);
+          echo $_GET['error'];
+          echo "<br>";
+    }
+?>
