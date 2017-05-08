@@ -31,7 +31,8 @@ class Post{
 		$post = $_GET['id'];
 
 		$stmt = $this->pdo->prepare("DELETE FROM posts WHERE id = :post ");
-        $stmt->execute([':post' => $post]); 		
+        $stmt->execute([':post' => $post]);
+        header('Location: ../index.php?message=Post deleted!');
 	}
 
 	public function createPost(){
@@ -70,6 +71,22 @@ class Post{
         } else {
             echo 'nothing here';
         } 
+    }
+    
+    public function getPostLikes($id) {
+        $postId = $id;
+        $username = $_SESSION['username'];
+        
+        $stmt = $this->pdo->prepare("SELECT * FROM likes WHERE Postid = :postId && User = :username");
+        
+        $stmt->execute(array(
+            ':postId' => $postId,
+            ':username' => $username
+        ));
+        
+        $like = $stmt->fetch();
+        return $like;
+        
     }
     
 	public function listAllJson($data)
