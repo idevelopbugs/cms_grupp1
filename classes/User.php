@@ -16,7 +16,7 @@ class User{
     public function logout(){
         session_unset();
         session_destroy();
-        header('Location: ../index.php');
+        //header('Location: ../index.php');
     }    
     public function login(){
 
@@ -35,7 +35,7 @@ class User{
 
                 if(password_verify($password, $row['Password'])){
                     
-                    echo "HEJ !";     
+                    //echo "HEJ !";     
                     $_SESSION['username'] = $row['Username'];
                     $_SESSION['admin'] = $row['Admin'];
                     $_SESSION['loggedin'] = true;
@@ -43,13 +43,11 @@ class User{
                     //echo $_SESSION['username'];
                 } 
                 else{
-                    echo "Invalid username/password"; 
-                    header('refresh:2; url=../index.php');
+                    return "Invalid username/password";
                 }
             }
             else{
-                echo "Invalid username/password"; 
-                header('refresh:2; url=../index.php');
+                return "Invalid username/password";
             }
         }
 
@@ -71,9 +69,7 @@ class User{
             if(!empty($row)) {
 
                 if($row['Username'] == $username) {
-                    echo "The username " . $username . " not available";
-                    echo "Use a difference username or try <a href='index.php'>logging in</a>";
-                //header('Location: index.php');
+                    return "The username " . $username . " not available";
                 }
             
             } else {
@@ -82,8 +78,8 @@ class User{
                 $stmt->execute(array(
                 ':username' => $username,
                 ':password' => $pwhash,
-                )); 
-                header('Location: ../includes/registercomplete.php');
+                ));
+                header('Location: ../index.php?message=Thanks for registering!');
             }      
         }		
  

@@ -3,3 +3,11 @@ Username: 	<input type="text" id="username" maxlength="20" name="username" requi
 Password: 	<input type="password" id="password" maxlength="20" name="password" required>	
           	<input type="submit" name="signup" value="Sign up">
           </form>
+
+<?php
+    if($_GET['error']){
+          //var_dump($_GET['error']);
+          echo $_GET['error'];
+          echo "<br>";
+    }
+?>
