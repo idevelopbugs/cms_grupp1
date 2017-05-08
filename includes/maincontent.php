@@ -13,15 +13,18 @@ $posts = $post->getAllPosts();
     <div id="container">
         <?php	
             foreach ($posts as $row){
+                $likes = $post->getPostLikes($row['ID']);
+                $num_likes = count($likes);
                 echo '
                         <div class="post" id="'. $row['ID'] . '">
                             <h3>' . $row['Title'] . '</h3>
                             <p>' . $row['Content'] . '</p>
-                            <h5>' . $row['User'] . ', ' . $row['Date'] . '</h5>';
+                            <h5>' . $row['User'] . ', ' . $row['Date'] . '</h5>
+                            <p>' . $num_likes . '</p>';
                             if(!$user->isloggedin()) {
                                 echo '<a href="includes/like.php" class="disabled">&#128077;</a>';
                             } else {
-                                if(empty($post->getPostLikes($row['ID']))) {
+                                if(empty($post->getUserLikes($row['ID']))) {
                                     echo '<a href="includes/like.php?id=' . $row['ID'] . '" class="enable">&#128077;</a>';
                                 } else {
                                     echo '<a href="includes/like.php?id=' . $row['ID'] . '" class="disabled">&#128077;</a>';

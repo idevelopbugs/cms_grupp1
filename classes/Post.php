@@ -79,6 +79,17 @@ class Post{
     
     public function getPostLikes($id) {
         $postId = $id;
+        
+        $stmt = $this->pdo->prepare("SELECT * FROM likes WHERE Postid = :postId");
+        $stmt->execute([
+            ':postId' => $postId
+        ]);
+        
+        $like = $stmt->fetchAll();
+        return $like;
+    }
+    public function getUserLikes($id) {
+        $postId = $id;
         $username = $_SESSION['username'];
         
         $stmt = $this->pdo->prepare("SELECT * FROM likes WHERE Postid = :postId && User = :username");
