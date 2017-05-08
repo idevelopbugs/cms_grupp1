@@ -35,7 +35,6 @@ class User{
 
                 if(password_verify($password, $row['Password'])){
                     
-                    //echo "HEJ !";     
                     $_SESSION['username'] = $row['Username'];
                     $_SESSION['admin'] = $row['Admin'];
                     $_SESSION['loggedin'] = true;
