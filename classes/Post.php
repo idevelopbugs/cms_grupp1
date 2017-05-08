@@ -32,6 +32,10 @@ class Post{
 
 		$stmt = $this->pdo->prepare("DELETE FROM posts WHERE id = :post ");
         $stmt->execute([':post' => $post]);
+        
+        $stmt = $this->pdo->prepare("DELETE FROM Likes WHERE Postid = :post ");
+        $stmt->execute([':post' => $post]);
+        
         header('Location: ../index.php?message=Post deleted!');
 	}
 
@@ -86,7 +90,19 @@ class Post{
         
         $like = $stmt->fetch();
         return $like;
+    }
+    
+    public function likePost()
+    {
+        $postId = (int) $_GET['id'];
+        $username = $_SESSION['username'];
         
+        $stmt = $this->pdo->prepare("INSERT INTO likes (Postid, User) values (:postId, :username)");
+        
+        $stmt->execute(array(
+            ':postId' => $postId,
+            ':username' => $username
+        )); 
     }
     
 	public function listAllJson($data)

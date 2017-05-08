@@ -19,12 +19,12 @@ $posts = $post->getAllPosts();
                             <p>' . $row['Content'] . '</p>
                             <h5>' . $row['User'] . ', ' . $row['Date'] . '</h5>';
                             if(!$user->isloggedin()) {
-                                echo '<a href="like.php" class="disabled">&#128077;</a>';
+                                echo '<a href="includes/like.php" class="disabled">&#128077;</a>';
                             } else {
-                                if(!$post->getPostLikes($row['ID'])) {
-                                    echo '<a href="like.php" class="enable">&#128077;</a>';
+                                if(empty($post->getPostLikes($row['ID']))) {
+                                    echo '<a href="includes/like.php?id=' . $row['ID'] . '" class="enable">&#128077;</a>';
                                 } else {
-                                    echo '<a href="like.php" class="disabled">&#128077;</a>';
+                                    echo '<a href="includes/like.php?id=' . $row['ID'] . '" class="disabled">&#128077;</a>';
                                 }
                                 if ($_SESSION['username'] == $row['User']) {  
                                     echo '<div class="postoptions">
@@ -34,9 +34,8 @@ $posts = $post->getAllPosts();
                                 }
                                 else if($_SESSION['admin']){
                                     echo '<a href="includes/delete.php?id=' . $row['ID'] . '">Remove</a>';
-                                    header('Location: index.php');
-                                }	
-                                
+                                    //header('Location: index.php');
+                                }	   
                             }
                         echo '</div>';
             }
