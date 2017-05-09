@@ -7,24 +7,3 @@
     pointer-events: none;
     cursor: default;
 }
-
-.nav-link{
-    color:black;
-    margin-left:5px;
-    margin-right:5px;
-    font-size:1.2rem;
-}
-
-.card-footer{
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-}
-
-.card-foot{
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    justify-content: flex-end;
-
-}
