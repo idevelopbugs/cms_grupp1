@@ -1,6 +1,7 @@
 <?php 
     include(dirname(__DIR__) . '/includes/db.php');
-    include 'headerloggedin.php';
+    include(dirname(__DIR__) . '/includes/header.php');
+    include(dirname(__DIR__) . '/includes/headerloggedin.php');
     $post = $post->getPost();
 
     echo '<form method="post" action="editpost.php?id=' . $post['ID'] . '" id="postform">';//*/
