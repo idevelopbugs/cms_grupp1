@@ -23,10 +23,9 @@
   </div>
 </div>
 </div>
+<a href="../index.php">Home</a>
 <?php
-    if($_GET['error']){
-          //var_dump($_GET['error']);
-          echo $_GET['error'];
-          echo "<br>";
+    if(!empty($_GET['message'])){
+          echo '<div><p>' . $_GET['message'] . '</p></div>';
     }
 ?>

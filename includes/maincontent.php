@@ -4,12 +4,6 @@ include(dirname(__DIR__) . '/includes/db.php');
 $posts = $post->getAllPosts();
 ?>
 <main>
-    <?php
-         if(!empty($_GET['message'])) {
-              echo $_GET['message'];
-              echo "<br>";
-         }
-    ?>
     <div id="container">
         <?php	
             foreach ($posts as $row){

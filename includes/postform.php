@@ -1,5 +1,6 @@
 <?php
 	include "header.php";
+    include "headerloggedin.php";
 ?>
 <div class="container-fluid">
   <form method="post" action="createpost.php" id="postform">
