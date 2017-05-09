@@ -1,6 +1,7 @@
 <?php
-	include "header.php";
-    include "headerloggedin.php";
+    include(dirname(__DIR__) . '/includes/db.php');
+	include(dirname(__DIR__) . '/includes/header.php');
+    include(dirname(__DIR__) . '/includes/headerloggedin.php');
 ?>
 <div class="container-fluid">
   <form method="post" action="createpost.php" id="postform">
