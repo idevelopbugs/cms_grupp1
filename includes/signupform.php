@@ -10,9 +10,9 @@
         <div class="form-login">
             <h4>Sign up</h4>
             <input type="text" class="form-control" id="username" placeholder="Username" maxlength="20" name="username" required>
-            </br>
+            <br>
             <input type="password" class="form-control" id="password" placeholder="Password" maxlength="20" name="password" required>
-            </br>
+            <br>
             <div class="wrapper">
             <span class="group-btn">     
             <button class="btn btn-primary" type="submit" name="signup" value="Login">Sign up</button>
