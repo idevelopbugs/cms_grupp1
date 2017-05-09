@@ -14,21 +14,16 @@ $posts = $post->getAllPosts();
         <?php	
             foreach ($posts as $row){
                 $likes = $post->getPostLikes($row['ID']);
-                $num_likes = count($likes);
                 echo '
                         <div class="post" id="'. $row['ID'] . '">
                             <h3>' . $row['Title'] . '</h3>
                             <p>' . $row['Content'] . '</p>
                             <h5>' . $row['User'] . ', ' . $row['Date'] . '</h5>
-                            <p>' . $num_likes . '</p>';
+                            <p>' . $likes . '</p>';
                             if(!$user->isloggedin()) {
                                 echo '<a href="includes/like.php" class="disabled">&#128077;</a>';
                             } else {
-                                if(empty($post->getUserLikes($row['ID']))) {
-                                    echo '<a href="includes/like.php?id=' . $row['ID'] . '" class="enable">&#128077;</a>';
-                                } else {
-                                    echo '<a href="includes/like.php?id=' . $row['ID'] . '" class="disabled">&#128077;</a>';
-                                }
+                                echo '<a href="includes/like.php?id=' . $row['ID'] . '" class="enabled">&#128077;</a>';
                                 if ($_SESSION['username'] == $row['User']) {  
                                     echo '<div class="postoptions">
                                         <a href="includes/editor.php?id=' . $row['ID'] . '">Edit</a>
@@ -37,7 +32,6 @@ $posts = $post->getAllPosts();
                                 }
                                 else if($_SESSION['admin']){
                                     echo '<a href="includes/delete.php?id=' . $row['ID'] . '">Remove</a>';
-                                    //header('Location: index.php');
                                 }	   
                             }
                         echo '</div>';

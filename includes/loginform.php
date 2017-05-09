@@ -9,9 +9,9 @@
         <div class="form-login">
             <h4>Login</h4>
             <input type="text" class="form-control" id="username" placeholder="Username" maxlength="20" name="username" autocomplete="off">
-            </br>
+            <br>
             <input type="password" class="form-control" id="password" placeholder="Password" maxlength="20" name="password" autocomplete="off">
-            </br>
+            <br>
             <div class="wrapper">
             <span class="group-btn">     
             <button class="btn btn-primary" type="submit" name="login" value="Login">Login</button>

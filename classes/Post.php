@@ -85,8 +85,9 @@ class Post{
             ':postId' => $postId
         ]);
         
-        $like = $stmt->fetchAll();
-        return $like;
+        $likes = $stmt->fetchAll();
+        $result = count($likes);
+        return $result;
     }
     public function getUserLikes($id) {
         $postId = $id;
@@ -109,6 +110,19 @@ class Post{
         $username = $_SESSION['username'];
         
         $stmt = $this->pdo->prepare("INSERT INTO likes (Postid, User) values (:postId, :username)");
+        
+        $stmt->execute(array(
+            ':postId' => $postId,
+            ':username' => $username
+        )); 
+    }
+    
+    public function unlikePost()
+    {
+        $postId = (int) $_GET['id'];
+        $username = $_SESSION['username'];
+        
+        $stmt = $this->pdo->prepare("DELETE FROM likes WHERE Postid = :postId && User = :username");
         
         $stmt->execute(array(
             ':postId' => $postId,
