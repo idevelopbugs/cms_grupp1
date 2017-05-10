@@ -5,5 +5,4 @@
             echo '<div><p>' . $_GET['message'] . '</p></div>';
         }
     ?>
-    <a href="includes/signupform.php">Register</a>
 </header>
