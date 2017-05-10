@@ -7,5 +7,5 @@
         </div>
     </nav>
 
-    <h3><?php echo "Welcome " . $_SESSION['username']; ?></h3>
+    <h3 class="welcome"><?php echo "Welcome " . $_SESSION['username']; ?></h3>
 </header>

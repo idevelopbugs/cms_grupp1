@@ -1,6 +1,6 @@
 .card {
     margin:0 auto;
-    margin-top:2rem;
+    margin-top:1rem;
 }
 
 .disabled {
@@ -32,4 +32,21 @@
 .navcontainer{
     padding-left:0 !important;
     padding-right:0 !important;
+}
+
+.welcome{
+    text-align:center;
+    margin-top:1rem;
+}
+
+.addpostbtn{
+    margin-top:1rem;
+}
+
+.titlerow{
+    margin-top:1rem;
+}
+
+.nav-link{
+    font-size:1.5rem !important;
 }
