@@ -3,12 +3,14 @@
 	include(dirname(__DIR__) . '/includes/header.php');
     include(dirname(__DIR__) . '/includes/headerloggedin.php');
 ?>
-<div class="container-fluid">
-  <form method="post" action="createpost.php" id="postform">
-    <div class="form-group col-sm-4">
-		<input type="text" class="form-control" placeholder="Title" name="title" autocomplete="off">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-sm-12">
+      <form method="post" action="createpost.php" id="postform">
+		    <input type="text" class="form-control titlerow" placeholder="Title" name="title" autocomplete="off">
       	<textarea class="form-control" rows="10" cols="30" name="postcontent" required></textarea>
-	  	<button class="btn btn-primary" type="submit" name="submit" value="Add post">Add post</button>
+	  	  <button class="btn btn-primary addpostbtn" type="submit" name="submit" value="Add post">Add post</button>
+      </form>
     </div>
-  </form>
+  </div>
 </div>

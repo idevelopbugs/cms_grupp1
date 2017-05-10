@@ -17,10 +17,10 @@ $posts = $post->getAllPosts();
                             <p>' . $row['Content'] . '</p>
                             </div>
                             <div class="card-footer">
-                            <div class="container-fluid col-lg-6">
+                            <div class="container-fluid col-sm-6">
                             <h5>' . $row['User'] . ', ' . $row['Date'] . '</h5>
                             </div>
-                            <div class="container-fluid card-foot col-lg-6">
+                            <div class="container-fluid card-foot col-sm-6">
                             <h5>' . $likes . '</h5>';
                             
                             if(!$user->isloggedin()) {
