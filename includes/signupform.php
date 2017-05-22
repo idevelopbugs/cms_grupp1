@@ -4,6 +4,7 @@
 ?>
 
 <div class="container">
+<a class="btn btn-primary homebtn" href="../index.php">Home</a>
 <div class="card" style="width: 20rem;">
   <div class="card-block">
     <form method="post" action="signup.php" id="signupform" name="loginform">
@@ -23,7 +24,6 @@
   </div>
 </div>
 </div>
-<a href="../index.php">Home</a>
 <?php
     if(!empty($_GET['message'])){
           echo '<div><p>' . $_GET['message'] . '</p></div>';
