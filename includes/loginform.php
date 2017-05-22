@@ -1,6 +1,3 @@
-<?php
-    include "header.php";
-?>
 
 <div class="container-fluid navcontainer">
     <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
