@@ -1,34 +1,15 @@
-$('.removebtn').click(function() {
+var ajaxRequest = $.ajax({
+        method: "GET",
+        url: "../includes/maincontent.php"
+        });
 
-$.ajax({
-    type: "POST",
-    url: "some.php",
-    data: { name: "John" }
-    }).done(function( msg ) {
-    alert( "Data Saved: " + msg );
-    });    
+window.onload = function() {
 
-   });
-
-fetch('jsoncontent.php')
-// The response converted to JSON is saved 
-  .then(data => data.json())
-  .then(function(json){
-  	json.map(function(obj){
-  		//var p = document.createElement('p');
-  		//var text = document.createTextNode(obj['title']);
-  		//p.appendChild(text);
-  		//document.body.appendChild(p);
-  		console.log(typeof obj);
-  		var cont = document.getElementById('container');
-  		cont.innerHTML = `
-  						<div>
-  							<p> 
-  								${obj.Title} 
-  							</p> 
-  								${obj.Content} 
-  						</div>
-  				`; 
-  	})
-
-  })
+    ajaxRequest.done(function(resp) {
+        var el = document.getElementById("main-content");
+        el.innerHTML = resp;
+    });
+    ajaxRequest.fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+    });
+};

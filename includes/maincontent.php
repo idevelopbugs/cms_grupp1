@@ -3,7 +3,7 @@ include(dirname(__DIR__) . '/includes/db.php');
 
 $posts = $post->getAllPosts();
 ?>
-<main>
+
     <div class ="container" id="container">
         <div class="row">
         <?php	
@@ -43,4 +43,3 @@ $posts = $post->getAllPosts();
         echo '</div>';
             }
         ?>
-</main>
