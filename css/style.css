@@ -54,3 +54,8 @@
 .homebtn {
     margin-top:0.5rem;
 }
+
+body > header > div.jumbotron.jumbotron-fluid{
+    background-image:url('../img/KO.jpg');
+    background-size:1280px 270px;
+}

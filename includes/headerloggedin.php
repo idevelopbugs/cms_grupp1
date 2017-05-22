@@ -6,6 +6,6 @@
             <a class="nav-link " href="../includes/logout.php">Log out</a>
         </div>
     </nav>
-
+    
     <h3 class="welcome"><?php echo "Welcome " . $_SESSION['username']; ?></h3>
 </header>
