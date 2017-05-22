@@ -73,7 +73,7 @@ class Post{
                 ':postId' => $postId
             ));
         } else {
-            echo 'nothing here';
+            echo 'Unable to find post.';
         } 
     }
     
@@ -128,10 +128,5 @@ class Post{
             ':postId' => $postId,
             ':username' => $username
         )); 
-    }
-    
-	public function listAllJson($data)
-  	{
-    	return json_encode($data);
-  	}	
+    }	
 }

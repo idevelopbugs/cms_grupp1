@@ -38,7 +38,7 @@ class User{
                     $_SESSION['admin'] = $row['Admin'];
                     $_SESSION['loggedin'] = true;
                     header('refresh:2; url=../index.php');
-                    //echo $_SESSION['username'];
+                    
                 } 
                 else{
                     return "Invalid username/password";
